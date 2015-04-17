@@ -24,7 +24,6 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
    */
   protected $action;
 
-
   /**
    * {@inheritdoc}
    */
@@ -34,7 +33,6 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
     $this->enableModule('user');
     $this->action = $this->actionManager->createInstance('rules_user_role_remove');
   }
-
 
   /**
    * Tests the summary.
@@ -46,7 +44,6 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
     $this->assertEquals('Remove roles of particular users', $this->action->summary());
   }
 
-
   /**
    * Tests removing existing role from user.
    *
@@ -57,7 +54,6 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
    */
   public function testRemoveExistingRole($account, $user)
   {
-
     // Set-up a mock user with role 'editor'.
     $editor = $this->getMockedUserRole('editor');
 
@@ -69,7 +65,6 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
 
     $this->assertEquals($this->action->autoSaveContext(), $user, 'Action returns nothing for auto saving since the user has been saved already.');
   }
-
 
   /**
    * @return array

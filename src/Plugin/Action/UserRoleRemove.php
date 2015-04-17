@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\rules\Plugin\Action;
 
 use Drupal\rules\Core\RulesActionBase;
@@ -41,7 +40,6 @@ class UserRoleRemove extends RulesActionBase
   {
     return $this->t('Remove roles of particular users');
   }
-
 
   /**
    * {@inheritdoc}
