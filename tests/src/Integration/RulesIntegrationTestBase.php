@@ -109,9 +109,10 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
       ->disableOriginalConstructor()
       ->getMock();
     // Set all the modules as being existent.
-    $this->enabledModules = new \ArrayObject();
-    $this->enabledModules['rules'] = TRUE;
-    $this->enabledModules['rules_test'] = TRUE;
+    $this->enabledModules = new \ArrayObject([
+      'rules' => TRUE,
+      'rules_test' => TRUE,
+    ]);
     $this->moduleHandler->expects($this->any())
       ->method('moduleExists')
       ->will($this->returnCallback(function ($module) {
@@ -119,10 +120,10 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
       }));
 
     $this->cacheBackend = new NullBackend('rules');
-    $rules_directory = __DIR__ . '/../../..';
+    $rules_directory = '/modules/rules';
     $this->namespaces = new \ArrayObject([
-      'Drupal\\rules' => $rules_directory . '/src',
-      'Drupal\\rules_test' => $rules_directory . '/tests/modules/rules_test/src',
+      'Drupal\\rules' => $this->root . $rules_directory . '/src',
+      'Drupal\\rules_test' => $this->root . $rules_directory . '/tests/modules/rules_test/src',
       'Drupal\\Core\\TypedData' => $this->root . '/core/lib/Drupal/Core/TypedData',
       'Drupal\\Core\\Validation' => $this->root . '/core/lib/Drupal/Core/Validation',
     ]);
