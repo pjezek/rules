@@ -11,14 +11,14 @@ use Drupal\Tests\rules\Integration\RulesIntegrationTestBase;
 
 /**
  * @coversDefaultClass \Drupal\rules\Plugin\Action\DataConvert
- * @group rules_action
+ * @group rules_actions
  */
 class DataConvertTest extends RulesIntegrationTestBase {
 
   /**
    * The action to be tested.
    *
-   * @var \Drupal\rules\Engine\RulesActionInterface
+   * @var \Drupal\rules\Core\RulesActionInterface
    */
   protected $action;
 
