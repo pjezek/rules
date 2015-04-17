@@ -2,6 +2,7 @@
 
 
 namespace Drupal\rules\Plugin\Action;
+
 use Drupal\rules\Core\RulesActionBase;
 
 /**
@@ -56,9 +57,7 @@ class UserRoleRemove extends RulesActionBase
     foreach ($roles as $role) {
       // Check if user has role.
       if ($account->hasRole($role->id())) {
-        // If you try to add anonymous or authenticated role to user, Drupal
-        // will throw an \InvalidArgumentException. Anonymous or authenticated
-        // role ID must not be assigned manually.
+        // Remove role
         $account->removeRole($role->id());
         // Set flag that indicates if the entity should be auto-saved later.
         $this->saveLater = TRUE;
