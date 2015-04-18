@@ -8,14 +8,14 @@
 namespace Drupal\Tests\rules\Integration;
 
 /**
- * Base class for Rules integration tests with user entities.
+ * Trait for Rules integration tests with user entities.
  */
 trait RulesUserIntegrationTestTrait {
 
   /**
    * Creates a mocked user.
    *
-   * @return \Drupal\user\UserInterface
+   * @return \Drupal\user\UserInterface|\PHPUnit_Framework_MockObject_MockObject
    *   The mocked user.
    */
   protected function getMockedUser() {
