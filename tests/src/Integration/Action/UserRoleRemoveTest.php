@@ -48,11 +48,14 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
    * Tests removing existing role from user.
    *
    * @covers ::execute
+   * @covers ::doExecute
    * @dataProvider rolesProvider
-   * @param $account
-   * @param $user
+   * @param \Drupal\user\UserInterface $account
+   *   Provides mocked user objects for the test.
+   * @param array $user
+   *   Array of contexts to get saved.
    */
-  public function testRemoveExistingRole($account, $user)
+  public function testRemoveExistingRole($account, array $user)
   {
     // Set-up a mock user with role 'editor'.
     $editor = $this->getMockedUserRole('editor');
@@ -101,8 +104,8 @@ class UserRoleRemoveTest extends RulesEntityIntegrationTestBase
       );
 
     return array(
-      'removing of one role' => array($account1, ['user']),
-      'removing of none role' => array($account2, []),
+      'removing of one role' => [$account1, ['user']],
+      'removing of none role' => [$account2, []],
     );
   }
 
